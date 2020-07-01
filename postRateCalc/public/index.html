@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--% include /partials/header.ejs %-->
+</head>
+
+<body>
+
+    <!--% include /partials/nav.ejs %-->
+    <h1>Postal Rate Caluclator</h1>
+
+    <form id="postCalc" action="/getRate" method="get">
+
+        <label for="type">Select type of mail:</label><br>
+        <select required name="type" id="type">
+            <option value="stamped">Stamped Letter</opion>
+            <option value="metered">Metered Letter</option>
+            <option value="flats">Large Envelope (Flats)</option>
+            <option value="package"> First-Class Package</option>
+        </select><br><br>
+
+        <label for="weight">Weight (oz):</label><br>
+        <input required type="text" id="weight" name="weight">
+
+        <input type="submit" value="Get Rate">
+    </form>
+
+</body>
+
+</html>
