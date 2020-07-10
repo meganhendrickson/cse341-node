@@ -1,0 +1,15 @@
+{
+    "name": "parkapp",
+    "version": "1.0.0",
+    "description": "city park app project",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Megan Hendrickson",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
