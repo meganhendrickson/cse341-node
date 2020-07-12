@@ -13,7 +13,10 @@
     <div id="parklist">
         <% for(var i=0; i<rows.length; i++) { %>
         <h3><%= rows[i].parkname %> </h3>
-        <img src='../images/<%= rows[i].parkimgage%>' <% } %> </div> <!-- <div class="jumbotron text-center">
+        <img src='../images/<%= rows[i].parkimgage%>' /> <% } %>
+    </div>
+
+    <!-- <div class="jumbotron text-center">
         <div class="container">
             <a href="/" class="lang-logo">
                 <img src="/lang-logo.png">

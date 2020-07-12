@@ -24,10 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // identify the views directory for templates
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.get('/', (req, res) => res.render('pages/index'))
-app.get('/parks', getAllParks)
 
-app.get('/allparks', (req, res) => {
+
+app.get('/', (req, res) => {
     pool.query('SELECT * from parks', (error, results) => {
         if (error) {
             throw error
@@ -38,6 +37,7 @@ app.get('/allparks', (req, res) => {
     })
 });
 
+app.get('/parks', getAllParks)
 
 // start the server listening
 app.listen(PORT, () => console.log(`Listening on ${PORT}`))
