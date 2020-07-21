@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+    <% include ../partials/nav.ejs %>
+
+    <h1>Park Detail Page</h1>
+    <div id="parklist">
+        <h2><%= park.parkname %></h2>
+        <img src='/images/<%= park.parkimage%>' />
+        <p><%= park.parkaddress %></p>
+    </div>
+
+</body>
+
+</html>
