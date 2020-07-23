@@ -1,23 +1,52 @@
-<!DOCTYPE html>
-<html>
-
-<head>
     <% include ../partials/header.ejs %>
-</head>
-
-<body>
 
     <% include ../partials/nav.ejs %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <% if (rows.length != 0) { for(var i=0; i<rows.length; i++) { %>
+                <div class="box">
+                    <h3><a href='/details?parkid=<%=rows[i].parkid%>'>
+                            <%= rows[i].parkname %>
+                        </a></h3>
+                    <a href='/details?parkid=<%=rows[i].parkid%>'><img class="img-fluid rounded"
+                            src='/images/<%= rows[i].parkimage%>' alt="Picture of <%= rows[i].parkname %>" /></a>
+                </div>
+                <% }} else { %>
+                <h6>There are no parks with all the selected amenities. Please try again.</h6>
+                <% } %>
+            </div>
 
-    <h1>Ankeny City Parks</h1>
-    <div id="parklist">
-        <% for(var i=0; i<rows.length; i++) { %>
-        <h3><a href='/details?parkid=<%=rows[i].parkid%>'>
-                <%= rows[i].parkname %>
-            </a></h3>
-        <a href='/details?parkid=<%=rows[i].parkid%>'><img src='/images/<%= rows[i].parkimage%>' /></a><% } %>
+            <div class="col-md-4">
+                <div id="amenselection" class="box">
+                    <h4>Amenity Selection</h4>
+                    <form id="amensform" action="/" method="get">
+                        <% for(var i=0; i<amens.length; i++) { %>
+                        <% if (selected.includes(amens[i].amenityid)){%>
+                        <input type="checkbox" id="amenity" name="amenity" value="<%= amens[i].amenityid %>" checked>
+                        <%} else {%>
+                        <input type="checkbox" id="amenity" name="amenity" value="<%= amens[i].amenityid %>">
+                        <%} %>
+                        <label for="amenity"><%= amens[i].amenitydescr %></label></br>
+                        <% } %>
+                        <input type="button" value="Reset" onclick="resetHandler()">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+
+            </div>
+        </div>
     </div>
 
-</body>
 
-</html>
+    <script>
+        function resetHandler() {
+            document.getElementById("amensform").reset();
+            var clist = document.getElementsByTagName("input");
+            for (var i = 0; i < clist.length; ++i) {
+                clist[i].checked = false;
+            }
+            console.log("reset complete");
+        }
+    </script>
+    <% include ../partials/footer.ejs %>

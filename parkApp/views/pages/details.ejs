@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html>
-
-<head>
     <% include ../partials/header.ejs %>
-</head>
-
-<body>
 
     <% include ../partials/nav.ejs %>
+    <div class="container">
+        <div class="box">
+            <div class="row">
+                <div class="col text-center">
+                    <h2><%= park.parkname %></h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="img-fluid rounded detailimg" src='/images/<%= park.parkimage%>' />
+                </div>
+                <div class="col-md-6">
+                    <h5>Address</h5>
+                    <p><%= park.parkaddress %></p>
+                    <h5>Amenities</h5>
+                    <p><%= park.amens %></p>
+                </div>
+            </div>
+        </div>
 
-    <h1>Park Detail Page</h1>
-    <div id="parklist">
-        <h2><%= park.parkname %></h2>
-        <img src='/images/<%= park.parkimage%>' />
-        <p><%= park.parkaddress %></p>
-    </div>
-
-</body>
-
-</html>
+        <% include ../partials/footer.ejs %>
